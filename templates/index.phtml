@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Part Search</title>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script>
+        (function ($, window, document){
+            var searchButton = document.getElementById('#search-button');
+            var results = document.getElementById('#results');
+            var partNum = document.getElementById('#part-number');
+
+            $.get('server.php')
+                .then(function (response) {
+                    console.log(resonse);
+                });
+        }(jQuery, window, document));
+        </script>
+    </head>
+    <body>
+        <h2>Customer Search</h2>
+
+
+        <!--  <?php if (isset($name)) : ?>
+             <h2>Hello <?= htmlspecialchars($name); ?>!</h2>
+         <?php else: ?>
+             <p>Try <a href="http://www.slimframework.com">SlimFramework</a></p>
+         <?php endif; ?> -->
+    </body>
+</html>
