@@ -1,34 +1,26 @@
+<?php
+const COMPANY_NAME_INDEX = 8;
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>Customers</title>
+        <title>Customer Summary</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
         <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
     </head>
     <body>
         <div class="container">
-            <h2>Customer Search</h2>
-            <table id="customer-table" class="display" style="width: 100%">
-            <thead>
-                <tr>
-                    <th>Company Name</th>
-                    <th>YTD Sales</th>
-                    <th>Contact Name</th>
-                    <th>Email</th>
-                    <th>Phone Number</th>
-                    <th>Fax Number</th>
-                    <th>Street</th>
-                    <th>City</th>
-                    <th>State</th>
-                    <th>Zip Code</th>
-                    <th>Country</th>
-                </tr>
-            </thead>
-            </table>
+            <h2><?= $companyName ?></h2>
+            <h3>Sales Trends</h3>
+            <canvas id="sales-trends" width="150" height="150"></canvas>
+            <h3>Current Orders</h3>
+            <h3>Map</h3>
         </div>
-        <script type="text/javascript" charset="utf8" src="/js/customer.js"></script>
+
+        <script type="text/javascript" charset="utf8" src="/js/customer-summary.js"></script>
     </body>
 </html>

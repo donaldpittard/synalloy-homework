@@ -5,10 +5,9 @@ use Slim\Http\Response;
 
 // Routes
 
-$app->get('/[{name}]', function (Request $request, Response $response, array $args) {
+$app->get('/', function (Request $request, Response $response, array $args) {
     return $this->renderer->render($response, 'index.phtml', $args);
 });
 
-$app->get('/api/customer', function (Request $request, Response $response, array $args) {
-    
-});
+$app->get('/api/customers', 'customer:all');
+$app->get('/customer/{id}', 'customer:summary');

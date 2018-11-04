@@ -1,4 +1,6 @@
 <?php
+$dbopts = parse_url(getenv('JAWSDB_MARIA_URL'));
+
 return [
     'settings' => [
         'displayErrorDetails' => true, // set to false in production
@@ -14,6 +16,14 @@ return [
             'name' => 'slim-app',
             'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
             'level' => \Monolog\Logger::DEBUG,
+        ],
+
+        'db' => [
+            'host'   => $dbopts['host'],
+            'user'   => $dbopts['user'],
+            'pass'   => $dbopts['pass'],
+            'dbname' => ltrim($dbopts['path'], '/'),
+            'port'   => $dbopts['port'],
         ],
     ],
 ];

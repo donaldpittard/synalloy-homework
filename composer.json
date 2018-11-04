@@ -20,6 +20,11 @@
     "require-dev": {
         "phpunit/phpunit": ">=4.8 < 6.0"
     },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src/"
+        }
+    },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
@@ -29,6 +34,7 @@
         "process-timeout" : 0
     },
     "scripts": {
+        "heroku": "heroku local -f Procfile.test -e .env",
         "start": "php -S localhost:8080 -t public",
         "test": "phpunit"
     }
