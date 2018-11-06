@@ -3,12 +3,6 @@
 
 $container = $app->getContainer();
 
-// view renderer
-$container['renderer'] = function ($c) {
-    $settings = $c->get('settings')['renderer'];
-    return new Slim\Views\PhpRenderer($settings['template_path']);
-};
-
 // monolog
 $container['logger'] = function ($c) {
     $settings = $c->get('settings')['logger'];
@@ -39,4 +33,16 @@ $container['db'] = function ($c) {
 $container['customer'] = function ($c) {
     $fake_data = include '../data/bill-to-companies.php';
     return new Application\Controller\Customer($fake_data, $c);
+};
+
+$container['view'] = function ($c) {
+    $template_path = realpath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'templates');
+    $view = new \Slim\Views\Twig($template_path);
+
+    // Instantiate and add Slim specific extension
+    $router = $c->get('router');
+    $uri = \Slim\Http\Uri::createFromEnvironment(new \Slim\Http\Environment($_SERVER));
+    $view->addExtension(new Slim\Views\TwigExtension($router, $uri));
+
+    return $view;
 };

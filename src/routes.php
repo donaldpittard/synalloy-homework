@@ -6,7 +6,7 @@ use Slim\Http\Response;
 // Routes
 
 $app->get('/', function (Request $request, Response $response, array $args) {
-    return $this->renderer->render($response, 'index.phtml', $args);
+    return $this->view->render($response, 'index.html', $args);
 });
 
 $app->get('/api/customers', 'customer:all');

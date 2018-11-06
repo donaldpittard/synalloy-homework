@@ -9,7 +9,7 @@ class Customer
     public function __construct($billToCompanies, $container)
     {
         $this->billToCompanies = $billToCompanies;
-        $this->renderer = $container->get('renderer');
+        $this->view = $container->get('view');
     }
 
     public function summary(Request $request, Response $response, array $args)
@@ -18,7 +18,7 @@ class Customer
         $company = $this->billToCompanies[$id];
         list($companyName) = $company;
 
-        return $this->renderer->render($response, 'customer.phtml', [
+        return $this->view->render($response, 'customer.html', [
             'companyName' => $companyName,
         ]);
     }
