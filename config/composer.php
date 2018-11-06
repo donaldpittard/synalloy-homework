@@ -26,6 +26,8 @@ function update_assets() {
     file_put_contents(__DIR__ . '/../public/css/bootstrap.min.css', file_get_contents($vendor_dir . '/components/bootstrap/css/bootstrap.min.css'));
     file_put_contents(__DIR__ . '/../public/css/bootstrap.min.css.map', file_get_contents($vendor_dir . '/components/bootstrap/css/bootstrap.min.css.map'));
     file_put_contents(__DIR__ . '/../public/js/bootstrap.min.js', file_get_contents($vendor_dir . '/components/bootstrap/js/bootstrap.min.js'));
+    file_put_contents(__DIR__ . '/../public/fonts/glyphicons-halflings-regular.woff', file_get_contents($vendor_dir . '/components/bootstrap/fonts/glyphicons-halflings-regular.woff'));
+    file_put_contents(__DIR__ . '/../public/fonts/glyphicons-halflings-regular.woff2', file_get_contents($vendor_dir . '/components/bootstrap/fonts/glyphicons-halflings-regular.woff2'));
 
     echo "Update MetisMenu\n";
     file_put_contents(__DIR__ . '/../public/css/metisMenu.min.css', file_get_contents($vendor_dir . '/onokumus/metismenu/dist/metisMenu.min.css'));
@@ -41,20 +43,16 @@ function update_assets() {
     echo "Update SB Admin 2\n";
     file_put_contents(__DIR__ . '/../public/css/sb-admin-2.css', file_get_contents($vendor_dir . '/benit/startbootstrap-sb-admin-2/dist/css/sb-admin-2.css'));
     file_put_contents(__DIR__ . '/../public/js/sb-admin-2.js', file_get_contents($vendor_dir . '/benit/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js'));
-}
 
-function recurse_copy($src,$dst) { 
-    $dir = opendir($src); 
-    @mkdir($dst); 
-    while(false !== ( $file = readdir($dir)) ) { 
-        if (( $file != '.' ) && ( $file != '..' )) { 
-            if ( is_dir($src . '/' . $file) ) { 
-                recurse_copy($src . '/' . $file,$dst . '/' . $file); 
-            } 
-            else { 
-                copy($src . '/' . $file,$dst . '/' . $file); 
-            } 
-        } 
-    } 
-    closedir($dir); 
-} 
+    echo "Update Data Tables\n";
+    file_put_contents(__DIR__ . '/../public/css/jquery.datatables.min.css', file_get_contents($vendor_dir . '/datatables/datatables/media/css/jquery.dataTables.min.css'));
+    file_put_contents(__DIR__ . '/../public/js/jquery.datatables.min.js', file_get_contents($vendor_dir . '/datatables/datatables/media/js/jquery.dataTables.min.js'));
+    file_put_contents(__DIR__ . '/../public/css/datatables.bootstrap.min.css', file_get_contents($vendor_dir . '/datatables/datatables/media/css/dataTables.bootstrap.min.css'));
+    file_put_contents(__DIR__ . '/../public/js/datatables.bootstrap.min.js', file_get_contents($vendor_dir . '/datatables/datatables/media/js/dataTables.bootstrap.min.js'));
+    file_put_contents(__DIR__ . '/../public/images/sort_both.png', file_get_contents($vendor_dir . '/datatables/datatables/media/images/sort_both.png'));
+    file_put_contents(__DIR__ . '/../public/images/sort_asc.png', file_get_contents($vendor_dir . '/datatables/datatables/media/images/sort_asc.png'));
+    file_put_contents(__DIR__ . '/../public/images/sort_asc_disabled.png', file_get_contents($vendor_dir . '/datatables/datatables/media/images/sort_asc_disabled.png'));
+    file_put_contents(__DIR__ . '/../public/images/sort_desc.png', file_get_contents($vendor_dir . '/datatables/datatables/media/images/sort_desc.png'));
+    file_put_contents(__DIR__ . '/../public/images/sort_desc_disabled.png', file_get_contents($vendor_dir . '/datatables/datatables/media/images/sort_desc_disabled.png'));
+
+}

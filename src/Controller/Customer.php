@@ -19,7 +19,7 @@ class Customer
         list($companyName) = $company;
 
         return $this->view->render($response, 'customer.html', [
-            'companyName' => $companyName,
+            'company_name' => $companyName,
         ]);
     }
 
